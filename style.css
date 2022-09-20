@@ -1,0 +1,53 @@
+body{
+    background-color: whitesmoke;
+}
+.card{
+    font-family: sans-serif;
+    width:400px;
+    aspect-ratio: 2/4;
+    background-color: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.09) 0px 3px 12px;
+}
+.info{
+    margin:0;
+    padding:20px;
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+}
+h2{
+    margin-top: 0;
+}
+.picture{
+    width:400px;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    /* border-radius: 10px; */
+}
+.description{
+    line-height: 1.5;
+}
+span{
+    color: rgb(146, 145, 145);
+}
+.price{
+    display: flex;
+}
+.heading{
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 40px;
+}
+.makeupproducts{
+    display: grid;
+}
+.search{
+    text-align: center;
+    font-size: 30px;
+}
+input{
+    font-size: 30px;
+    width: 100vh;
+}
