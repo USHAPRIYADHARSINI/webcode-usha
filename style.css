@@ -41,7 +41,12 @@ span{
     font-size: 40px;
 }
 .makeupproducts{
-    display: grid;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-around;
 }
 .search{
     text-align: center;
@@ -50,4 +55,7 @@ span{
 input{
     font-size: 30px;
     width: 100vh;
+}
+button{
+    font-size: 30px;
 }

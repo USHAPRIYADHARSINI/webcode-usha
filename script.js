@@ -47,10 +47,21 @@ const allproducts=[
 document.body.innerHTML=`<section>
 <h1 class="heading">Welcome to makeup api</h1>
 <div class="search">
-<label for="search">Search your favourite here : </label>
-<input type="search" oninput=searchproduct() id="search"></div></section>
+<label for="search">Search the product here : </label>
+<input type="search" id="search" name="searchword" placeholder="example: lipstick" required>
+<button onclick=searchproduct()>Search</button></div></section>
+<p id="searchvalue"></p>
 <section class="makeupproducts"></section>
 <section></section>`
+
+const input = document.querySelector('input')
+const searchvalue = document.getElementById('searchvalue');
+
+input.addEventListener('change', updatevalue);
+
+function updatevalue(e) {
+    searchvalue.textContent = e.target.value;
+}
 
 //a function to get all the cards 
 
@@ -88,21 +99,22 @@ async function loadlist(){
 // file is loading for a long time , might be bcoz of the size
 // calling the function to display
 
-loadlist();
+// loadlist();
 
 //  a function for search operation
 
 async function searchproduct(){ 
-    document.querySelector(".namelistc").innerHTML=``;
-    var input= document.getElementById("#search").value
+    document.querySelector(".makeupproducts").innerHTML=``;
+    var inputsearch = searchvalue.textContent ;
     console.log("Searching user...");
+    console.log('inputsearch:',inputsearch)
     try{
-    var fetchdata = await fetch("https://632161fcfd698dfa29f6a334.mockapi.io/users",{
+    var fetchdata = await fetch(`http://makeup-api.herokuapp.com/api/v1/products.json?product_type=${inputsearch}`,{
         method: "GET"
     })
-    var data= fetchdata
-    .filter((e)=>input==e);
+    var data= await fetchdata.json()
     console.log(data);
+    callproducts(data)
     }catch(err)
         {console.log("error occured in search")};
 }
