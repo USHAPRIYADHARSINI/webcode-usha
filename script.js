@@ -109,7 +109,7 @@ async function searchproduct(){
     console.log("Searching user...");
     console.log('inputsearch:',inputsearch)
     try{
-    var fetchdata = await fetch(`http://makeup-api.herokuapp.com/api/v1/products.json?product_type=${inputsearch}`,{
+    var fetchdata = await fetch(`https://makeup-api.herokuapp.com/api/v1/products.json?product_type=${inputsearch}`,{
         method: "GET"
     })
     var data= await fetchdata.json()
